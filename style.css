@@ -1,0 +1,86 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(72deg, #3DEBB0 1%, #8956F3 99%);
+}
+
+.content{
+    height: 520px;
+    width: 935px;
+    border-radius: 20px;
+    overflow: hidden;/* esconde o conteudo que está ultrapassando o content(a div)*/
+    position: absolute;
+    top: 50%;/* 50% a baixo do topo*/
+    left: 50%;/* 50% ao lado da esquerda*/
+    transform: translate(-50%, -50%);/*usado para corrigir movendo o elemento no seu próprio eixo. O eixo X é o primeiro e o Y o segundo*/
+}
+
+.navigation{
+    position: absolute;/*aqui só vai dar de mover o absolute dentro da div pai, nesse caso o content*/
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);/*movendo o eixo X*/
+    display: flex;
+}
+
+.bar{
+    width: 70px;
+    height: 17px;
+    border: 2px solid white;
+    margin: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .6s;
+}
+
+.bar:hover{
+    background-color: #fff;
+}
+
+input{
+    display: none;/*para não aparecer as bolinhas*/
+}
+
+.slides{
+    display: flex;
+    width: 500%;/*para uma imagem aparecer de cada vez,foram 5 imagens colocadas*/
+    height: 100%;
+}
+
+.slide{
+    width: 20%;
+    transition: .6s;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+
+#slide1:checked ~ .s1{
+    margin-left: 0;
+}
+
+#slide2:checked ~ .s1{
+    margin-left: -20%;
+} 
+
+#slide3:checked ~ .s1{
+    margin-left: -40%;
+} 
+
+#slide4:checked ~ .s1{
+    margin-left: -60%;
+} 
+
+#slide5:checked ~ .s1{
+    margin-left: -80%;
+} 
+
+/* Foi usado o ~ para quando o primeiro input tiver checado, quero que o s1 ela tenha a margin esquerda 0 */
+
+/* Para mover as imagens vamos dar um valor negativo, para mover da esquerda para direita. a primeira imagem ja está selecionada por padrão(foi usado o checked)*/
+
+/* Foi usado o menos - porque quero que a imagem va para direita e 20% porque são 5 imagens, 100% divido por 5 vai ser 20% e calculando todas elas.*/
